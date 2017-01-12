@@ -15,10 +15,20 @@ test(`Does the reducer return empty state by default?`, (t) => {
 })
 
 test(`We can change visibility filters`, (t) => {
-  t.plan(1);
+  t.plan(4);
   t.deepEqual(todoReducer({}, { type: `SET_VISIBILITY_FILTER`, filter: `SHOW_ALL` }),
     { visibilityFilter: `SHOW_ALL` }),
     `We can set a null visibilityFilter to equal SHOW_ALL`
+  t.deepEqual(todoReducer({}, { type: `SET_VISIBILITY_FILTER`, filter: `SHOW_COMPLETED` }),
+    { visibilityFilter: `SHOW_COMPLETED` }),
+    `We can set a null visibilityFilter to equal SHOW_COMPLETED`
+  t.deepEqual(todoReducer({}, { type: `SET_VISIBILITY_FILTER`, filter: `SHOW_ACTIVE` }),
+    { visibilityFilter: `SHOW_ACTIVE` }),
+    `We can set a null visibilityFilter to equal SHOW_ACTIVE`
+  t.deepEqual(todoReducer({ visibilityFilter: `SHOW_ALL` },
+    { type: `SET_VISIBILITY_FILTER`,    filter: `SHOW_ACTIVE` }),
+    { visibilityFilter: `SHOW_ACTIVE` }),
+    `We can set a overwrite a previous filter`
 })
 
 test(`Test reducers add TODO route`, (t) => {
