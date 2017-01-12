@@ -4,7 +4,7 @@
   "description": "I'm going to learn Redux and in the process make a small to do list",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/index.js"
   },
   "repository": {
     "type": "git",
