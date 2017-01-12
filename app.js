@@ -1,11 +1,22 @@
 const { createStore } = require(`redux`);
 
+// set up variables corresponding to our action names. avoids magic strings
+// and helps the ide help us :)
 const ADD_TODO = `ADD_TODO`
+const TOGGLE_TODO = `TOGGLE_TODO`
 
+// functions to return actions
 const addTodo = (text) => {
   return {
     type: ADD_TODO,
     text
+  }
+}
+
+const toggleTodo = (index) => {
+  return {
+    type: TOGGLE_TODO,
+    index
   }
 }
 
@@ -22,5 +33,6 @@ const todoReducer = (state = {}, action = {}) => {
 
 module.exports = {
   addTodo,
+  toggleTodo,
   todoReducer
 }
