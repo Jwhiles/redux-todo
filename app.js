@@ -10,10 +10,10 @@ const addTodo = (text) => {
 }
 
 const todoReducer = (state = {}, action = {}) => {
-  console.log(state)
   switch(action.type) {
-    `ADD_TODO`
-
+    case `ADD_TODO`:
+      const newState = Object.assign({}, state, { todo: action.text })
+      return newState;
     default:
       return state;
   }
