@@ -39,7 +39,19 @@ test(`Test reducers add TODO route`, (t) => {
   t.deepEqual(todoReducer({ todos: [{ text:`do`, completed: false }] },
     { type: `ADD_TODO`, text: `do2` }),
     { todos: [{ text:`do`, completed: false }, { text:`do2`, completed: false }] },
-    `returns a new state, with a todo`);
+    `can add a todo to an existing state`);
+})
+
+test(`Test toggle route`, (t) => {
+  t.plan(2);
+  t.deepEqual(todoReducer({ todos: [{ text:`do`, completed: false }] },
+    { type: `TOGGLE_TODO`, index: 0 }),
+    { todos: [{ text:`do`, completed: true }] },
+    `toggles a todo item from false to true`);
+  t.deepEqual(todoReducer({ todos: [{ text:`do`, completed: true }] },
+    { type: `TOGGLE_TODO`, index: 0 }),
+    { todos: [{ text:`do`, completed: false }] },
+    `toggles a todo item from true to false`)
 })
 
 }

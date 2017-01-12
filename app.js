@@ -44,10 +44,10 @@ const initialState = {
 
 const todoReducer = (state = initialState, action = {}) => {
   switch(action.type) {
-    case `SET_VISIBILITY_FILTER`:
+    case SET_VISIBILITY_FILTER:
       return Object.assign({}, state, { visibilityFilter: action.filter })
       break;
-    case `ADD_TODO`:
+    case ADD_TODO:
       return Object.assign({}, state, {
         todos: (state.todos || []).concat([
           {
@@ -56,6 +56,13 @@ const todoReducer = (state = initialState, action = {}) => {
           }
         ]),
       })
+      break;
+    case TOGGLE_TODO:
+      let newTodos = state.todos.slice(0)
+      newTodos[action.index].completed = !newTodos[action.index].completed
+      return Object.assign({}, state, {
+        todos: newTodos
+      });
       break;
     default:
       return state;
