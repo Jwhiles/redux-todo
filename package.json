@@ -1,0 +1,22 @@
+{
+  "name": "redux-todo",
+  "version": "1.0.0",
+  "description": "I'm going to learn Redux and in the process make a small to do list",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jwhiles/redux-todo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jwhiles/redux-todo/issues"
+  },
+  "homepage": "https://github.com/Jwhiles/redux-todo#readme",
+  "dependencies": {
+    "tape": "^4.6.3"
+  }
+}
