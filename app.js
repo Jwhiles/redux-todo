@@ -1,3 +1,5 @@
+const { createStore } = require('redux');
+
 const ADD_TODO = 'ADD_TODO'
 
 const addTodo = (text) => {
@@ -7,10 +9,16 @@ const addTodo = (text) => {
   }
 }
 
-const todo = (state, action) => {
-
+const todoReducer = (state = {}, action = {}) => {
+  console.log(state)
+  switch(action.type) {
+    default:
+      return state;
+  }
 }
 
+
 module.exports = {
-  addTodo
+  addTodo,
+  todoReducer
 }
