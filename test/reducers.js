@@ -33,10 +33,13 @@ test(`We can change visibility filters`, (t) => {
 
 test(`Test reducers add TODO route`, (t) => {
   t.plan(2);
-  t.deepEqual(todoReducer({}, { type: `ADD_TODO`, text: `do` }), { todo: `do` },
+  t.deepEqual(todoReducer({}, { type: `ADD_TODO`, text: `do` }),
+    { todos: [{ text:`do`, completed: false }] },
     `returns a new state, with a todo`);
-  t.deepEqual(todoReducer({ todo: `don't` }, { type: `ADD_TODO`, text: `do` }),
-    { todo: `do` }, `should overwrite a previous todo`);
+  t.deepEqual(todoReducer({ todos: [{ text:`do`, completed: false }] },
+    { type: `ADD_TODO`, text: `do2` }),
+    { todos: [{ text:`do`, completed: false }, { text:`do2`, completed: false }] },
+    `returns a new state, with a todo`);
 })
 
 }

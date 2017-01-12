@@ -48,13 +48,19 @@ const todoReducer = (state = initialState, action = {}) => {
       return Object.assign({}, state, { visibilityFilter: action.filter })
       break;
     case `ADD_TODO`:
-      return Object.assign({}, state, { todo: action.text })
+      return Object.assign({}, state, {
+        todos: (state.todos || []).concat([
+          {
+            text: action.text,
+            completed: false
+          }
+        ]),
+      })
       break;
     default:
       return state;
   }
 }
-
 
 
 
