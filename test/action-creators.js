@@ -30,7 +30,5 @@ test(`We can create visibility filter actions`, (t) => {
   t.deepEqual(setVisibilityFilter(`SHOW_ACTIVE`),
     { type: `SET_VISIBILITY_FILTER`, filter: `SHOW_ACTIVE` },
     `returns correct filter for show active`);
-
-
 })
 }
