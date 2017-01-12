@@ -37,15 +37,26 @@ const setVisibilityFilter = (filter) => {
 
 // reducers here
 
-const todoReducer = (state = {}, action = {}) => {
+const initialState = {
+  visibilityFilter: SHOW_ALL,
+  todos: []
+}
+
+const todoReducer = (state = initialState, action = {}) => {
   switch(action.type) {
+    case `SET_VISIBILITY_FILTER`:
+      return Object.assign({}, state, { visibilityFilter: action.filter })
+      break;
     case `ADD_TODO`:
-      const newState = Object.assign({}, state, { todo: action.text })
-      return newState;
+      return Object.assign({}, state, { todo: action.text })
+      break;
     default:
       return state;
   }
 }
+
+
+
 
 
 module.exports = {

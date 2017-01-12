@@ -6,12 +6,19 @@ const { todoReducer } = require(`../app.js`);
 
 test(`Does the reducer return empty state by default?`, (t) => {
   t.plan(3);
-  t.deepEqual(todoReducer(), {},
-    `returns a bare object`);
+  t.deepEqual(todoReducer(), { visibilityFilter: `SHOW_ALL`, todos: [] },
+    `returns an initial state when called without state`);
   t.deepEqual(todoReducer({}), {},
     `returns state when called with no action`);
   t.deepEqual(todoReducer({ state: `state` }), { state: `state` },
     `returns state when called with no action`);
+})
+
+test(`We can change visibility filters`, (t) => {
+  t.plan(1);
+  t.deepEqual(todoReducer({}, { type: `SET_VISIBILITY_FILTER`, filter: `SHOW_ALL` }),
+    { visibilityFilter: `SHOW_ALL` }),
+    `We can set a null visibilityFilter to equal SHOW_ALL`
 })
 
 test(`Test reducers add TODO route`, (t) => {
