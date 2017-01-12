@@ -1,6 +1,16 @@
 const ADD_TODO = 'ADD_TODO'
 
-const exampleAction = {
-  type: ADD_TODO,
-  text: 'make a sweet rad react app'
+const addTodo = (text) => {
+  return {
+    type: ADD_TODO,
+    text
+  }
+}
+
+const todo = (state, action) => {
+
+}
+
+module.exports = {
+  addTodo
 }
