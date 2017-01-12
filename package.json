@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Jwhiles/redux-todo#readme",
   "dependencies": {
+    "redux": "^3.6.0",
     "tape": "^4.6.3"
   }
 }
